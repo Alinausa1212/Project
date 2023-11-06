@@ -11,26 +11,20 @@ import java.time.Duration;
 public class AddEmployeeSteps extends CommonMethods {
     @Given("user is navigated to HRMS application")
     public void user_is_navigated_to_hrms_application() throws InterruptedException {
-        // driver=new ChromeDriver();
-        //driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login");
-        // Thread.sleep(2000);
-        // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
         openBrowserAndLaunchApplication();
 
     }
     @When("user enters admin username and password")
     public void user_enters_admin_username_and_password() throws InterruptedException {
         WebElement usernameTextField= driver.findElement(By.xpath("//*[@id='txtUsername']"));
-        //usernameTextField.sendKeys("admin");
-        //Thread.sleep(2000);
+    
         sendText(usernameTextField, ConfigReader.getPropertyValue("username"));
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        
         WebElement passwordTextField= driver.findElement(By.cssSelector("input#txtPassword"));
         sendText(passwordTextField,ConfigReader.getPropertyValue("password"));
 
-        //passwordTextField.sendKeys("Hum@nhrm123");
-        //Thread.sleep(2000);
-        // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    
 
 
     }
@@ -38,8 +32,7 @@ public class AddEmployeeSteps extends CommonMethods {
     public void user_clicks_on_login_button() throws InterruptedException {
         WebElement loginButton=driver.findElement(By.xpath("//*[value='LOGIN'}"));
         click(loginButton);
-        // loginButton.click();
-        //Thread.sleep(2000);
+        
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
     @Then("user is successfully logged in")
